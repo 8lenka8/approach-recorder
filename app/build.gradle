@@ -1,0 +1,58 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'realm-android'
+
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'io.fabric'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.iboism.gpxrecorder"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 31
+        versionName "2.1"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    realm {
+        syncEnabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.preference:preference-ktx:1.1.0'
+    implementation 'com.google.android.material:material:1.1.0-beta01'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+
+    implementation 'com.karumi:dexter:4.2.0'
+    implementation group: 'commons-io', name: 'commons-io', version: '2.6'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+    implementation 'io.realm:android-adapters:3.1.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.0'
+    implementation 'com.google.firebase:firebase-core:17.2.0'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    implementation 'com.github.kittinunf.fuel:fuel:2.2.1'
+
+}
+
+apply plugin: 'com.google.gms.google-services'
